@@ -1,0 +1,62 @@
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif, arial;
+  background-image: url(assets/background2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 30%;
+  margin: 2rem auto;
+  padding: 2rem 0;  
+  border-radius: 2rem;
+  box-shadow: 2.5px 2.5px 5px black;
+  font-family: "Poppins", serif;
+  text-align: center;
+  color: white;
+}
+
+#header-img {
+  width: 100px;
+  height: 100px;
+}
+
+h1 {
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+#player-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.inp {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 0.5rem 0.5rem;
+  color: white;
+}
