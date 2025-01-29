@@ -1,3 +1,4 @@
+import Gameboard from "./components/Gameboard";
 import Header from "./components/Header";
 import Players from "./components/Players";
 import Card from "./Helpers/Card";
@@ -7,6 +8,7 @@ function App() {
       <>
       <Header />
       <Players />
+      <Gameboard />
       </>
   );
 }
