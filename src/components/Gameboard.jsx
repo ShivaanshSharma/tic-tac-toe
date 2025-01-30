@@ -21,10 +21,12 @@ export default function Gameboard() {
 
     return (
         <Card>
-            <div id="board-div">
-            {board.map((row, rowIndex) => <div key={rowIndex} className="row-div">
-                {row.map((item, colIndex) => <button key={colIndex} onClick={() => buttonClickHandler(rowIndex, colIndex)} className="board-btn">{item}</button>)}
-            </div>)}
+            <div id="main-container">
+                {board.map((row, rowIndex) => <span key={rowIndex}>
+                    <div className="inner-container">
+                        {row.map((item, colIndex) => <span key={colIndex} className="each-btn-span"><button onClick={() => buttonClickHandler(rowIndex, colIndex)} className="board-btn">{item}</button></span>)}
+                    </div>
+                </span>)}
             </div>
         </Card>
     )
