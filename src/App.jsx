@@ -19,7 +19,7 @@ function App() {
   return (
       <>
       <Header />
-      <Players />
+      <Players activePlayer={player} />
       <Gameboard activePlayer={player} onPlayerChange={playerChangeHandler}/>
       </>
   );
