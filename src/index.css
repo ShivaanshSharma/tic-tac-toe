@@ -93,3 +93,24 @@ h2 {
 .info-p {
   padding: 0.5rem;
 }
+
+#winner-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: fit-content;
+  margin: 40vh auto;
+  padding: 5rem;  
+  border-radius: 2rem;
+  box-shadow: 2.5px 2.5px 5px black;
+  font-family: "Poppins", serif;
+  text-align: center;
+  color: white;
+}
+
+#winner-box p {
+  margin: 1rem 0 0 0;
+}
+
+#winner-box button {
+  border: 1px white solid;
+}
+

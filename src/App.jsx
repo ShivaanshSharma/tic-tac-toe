@@ -2,7 +2,6 @@ import { useState } from "react";
 import Gameboard from "./components/Gameboard";
 import Header from "./components/Header";
 import Players from "./components/Players";
-import Card from "./Helpers/Card";
 import { WINNING_COMBINATIONS } from "./winning-combinations";
 
 const initialBoard = [
@@ -11,9 +10,16 @@ const initialBoard = [
   [null, null, null]
 ];
 
+let counter = 0;
+
 function App() {
 
-  const [player, setPlayer] = useState({ symbol: 'O', name: 'Player 1'});
+  const [players, setPlayers] = useState({
+    O: 'Player 1',
+    X: 'Player 2'
+  })
+
+  const [player, setPlayer] = useState('O');
   const [board, setBoard] = useState(initialBoard);
 
   let winner = '';
@@ -28,31 +34,44 @@ function App() {
           }
       }
 
-      console.log(winner);
-
       const buttonClickHandler = (row, col) => {
         setBoard((prev) => {
             const updatedBoard = [...prev.map((innerArray) => [...innerArray])];
-            updatedBoard[row][col] = player.symbol;
+            updatedBoard[row][col] = player;
             return updatedBoard;
         })
         playerChangeHandler();
+        counter++;
     }
 
   const playerChangeHandler = () => {
-    if (player.symbol === 'O') {
-      setPlayer({...player, symbol: 'X'});
+    if (player === 'O') {
+      setPlayer('X');
     } else {
-      setPlayer({...player, symbol: 'O'});
+      setPlayer('O');
     }
+  }
+
+  function playerNameChangeHandler (newName, symb) {
+    const newPlayers = {...players};
+    newPlayers[symb] = newName;
+    console.log(newPlayers);
+    setPlayers(newPlayers);
+  }
+
+  function restartHandler() {
+    setBoard(initialBoard);
+    setPlayer('O');
+    counter = 0;
   }
 
   return (
       <>
-      {winner ? <div id="winner-board">Winner is ABC</div> : null}
+      {winner ? <dialog id="winner-box" open>Winner is {players[winner]} ({winner})!<p><button onClick={restartHandler} className="btn">Restart the game</button></p></dialog> : null}
+      {counter === 9 ? <dialog id="winner-box" open>It's a Draw!<p><button onClick={restartHandler} className="btn">Restart the game</button></p></dialog> : null}
       <Header />
-      <Players activePlayer={player} />
-      <Gameboard clickHandler={buttonClickHandler} gameBoard={board} activePlayer={player} onPlayerChange={playerChangeHandler}/>
+      <Players nameChange={playerNameChangeHandler} activePlayer={player} currentPlayers={players} />
+      <Gameboard clickHandler={buttonClickHandler} gameBoard={board} activePlayer={player} onPlayerChange={playerChangeHandler} />
       </>
   );
 }
