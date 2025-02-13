@@ -71,7 +71,7 @@ function App() {
       {counter === 9 ? <dialog id="winner-box" open>It's a Draw!<p><button onClick={restartHandler} className="btn">Restart the game</button></p></dialog> : null}
       <Header />
       <Players nameChange={playerNameChangeHandler} activePlayer={player} currentPlayers={players} />
-      <Gameboard clickHandler={buttonClickHandler} gameBoard={board} activePlayer={player} onPlayerChange={playerChangeHandler} />
+      <Gameboard isWinner={winner} clickHandler={buttonClickHandler} gameBoard={board} activePlayer={player} onPlayerChange={playerChangeHandler} />
       </>
   );
 }
