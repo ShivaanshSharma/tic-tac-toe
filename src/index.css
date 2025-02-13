@@ -12,8 +12,9 @@ body {
 .card {
   background-color: rgba(0, 0, 0, 0.6);
   width: fit-content;
+  max-width: 80%;
   margin: 2rem auto;
-  padding: 2rem;  
+  padding: 1rem;  
   border-radius: 2rem;
   box-shadow: 2.5px 2.5px 5px black;
   font-family: "Poppins", serif;
@@ -27,14 +28,14 @@ body {
 }
 
 h1 {
-  padding: 0 5rem;
+  padding: 0 2.5rem;
   margin: 1rem 0 0 0;
 }
 
 h2 {
   padding: 0;
   margin: 0;
-  padding: 0 7.5rem;
+  padding: 0 2.5rem;
 }
 
 #player-info {
